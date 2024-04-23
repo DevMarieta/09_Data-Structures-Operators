@@ -227,3 +227,12 @@ let [rest3, ,rest4] = resturant.servi; ///
 console.log(rest3,rest4); 
 const [st1,st2]  = resturant.order(0,0);
 console.log(st1, st2);
+// vlojen masiv
+
+const nested = [2,4, [2,'mimi']];
+const [i, ,m] = nested;
+console.log(i, m);
+// destruktorirane na vloven
+
+const [k, ,[o,p]]= nested;
+console.log(k, o, p);
