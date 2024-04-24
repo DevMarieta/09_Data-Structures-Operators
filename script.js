@@ -191,33 +191,35 @@ console.log('Friend:', friend);
 console.log('Me', me);
 
 
-///////////////////////////////////////
-// Primitives vs. Objects in Practice
+// ///////////////////////////////////////
+// // Primitives vs. Objects in Practice
 
-// Primitive types
-let lastName = 'Williams';
-let oldLastName = lastName; 
-*/
-// 
-let restorant = {
-addres: 'Sofia; Ovcha Cupel, str: Geo Milev',
-name: 'Mariya and Viki',
-menu:['Pizza Caprichoza', 'Pasta Italianam', 'Tartaleta', 'Gelato'],
-asist1: {
-room1:['Gosho','Nikol'],
-room2: ['Viki','Grig','Iva']
-},
-asist2:{
-    room20:{
-        name1:['Iva','Ivan','Mariya']
-    }
-},
-order: function(varni1, varni2) {
-return[this.menu[varni1],this.asist.room1[varni2]]
-}
-}
-let vurni = order.varni1;
-console.log(vurni);
+// // Primitive types
+// let lastName = 'Williams';
+// let oldLastName = lastName; 
+// */
+// // 
+// //let restorant = {
+//     address: 'Sofia; Ovcha Kupel, str: Geo Milev',
+//     name: 'Mariya and Viki',
+//     menu: ['Pizza Caprichoza', 'Pasta Italianam', 'Tartaleta', 'Gelato'],
+//     asist1: {
+//         room1: ['Gosho', 'Nikol'],
+//         room2: ['Viki', 'Grig', 'Iva']
+//     },
+//     asist2: {
+//         room20: {
+//             name1: ['Iva', 'Ivan', 'Mariya']
+//         }
+//     },
+//     order: function (varni1, varni2) {
+//         return [this.menu[varni1], this.asist1.room1[varni2]]; // Корекция на пътя до room1
+//     }
+// };
+
+// // Пример за извикване на метода order с параметри
+// let result = restorant.order(0, 1); // Подаваме индексите за menu и room1
+// console.log(result); // Трябва да изведе избраните елементи от menu и room1
 
 ////
 const restaurant = {
@@ -242,4 +244,63 @@ const restaurant = {
       },
     },
   };
-  
+  const {name,mainMenu,openingHours} = restaurant;
+  console.log(name,mainMenu,openingHours);
+  /////////////////
+  Деструктуриране на Масиви и Обекти:
+Масиви: Извличане на стойности от масив в отделни променливи.
+javascript
+Copy code
+const numbers = [1, 2, 3];
+const [a, b, c] = numbers;
+console.log(a, b, c); // 1, 2, 3
+Обекти: Извличане на свойства от обект в отделни променливи със същите или нови имена.
+javascript
+Copy code
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  openingHours: {
+    thu: { open: 12, close: 22 },
+    fri: { open: 11, close: 23 },
+    sat: { open: 0, close: 24 }, // Open 24 hours
+  }
+};
+
+const { name: restaurantName, openingHours: hours, categories: tags } = restaurant;
+console.log(restaurantName, hours, tags);
+Промяна на Имена и Стойности по Подразбиране при Деструктуриране:
+Извличане на свойства с промяна на името и задаване на стойности по подразбиране.
+javascript
+Copy code
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters); // [] "starterMenu items"
+Мутиране на Променливи:
+Мутиране на вече декларирани променливи чрез деструктуриране.
+javascript
+Copy code
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+({a, b} = obj);
+console.log(a, b); // 23, 7
+Деструктуриране в Параметри на Функция:
+Използване на деструктуриране директно в параметрите на функция за опростяване на кода.
+javascript
+Copy code
+const orderPizza = ({ mainIngredient = 'Cheese', time = '20:00', address }) => {
+  console.log(`Order received! Pizza with ${mainIngredient} will be delivered to ${address} at ${time}`);
+};
+
+orderPizza({
+  address: 'Via del Sole, 21',
+  mainIngredient: 'Mushrooms'
+});
+Вложено Деструктуриране:
+Извличане на стойности от вложени обекти.
+javascript
+Copy code
+const nested = { starter: 'Garlic Bread', mainCourse: { pizza: 'Margherita', pasta: 'Pomodoro' } };
+const { starter, mainCourse: { pizza, pasta } } = nested;
+console.log(starter, pizza, pasta); // Garlic Bread, Margherita, Pomodoro
