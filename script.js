@@ -198,41 +198,48 @@ console.log('Me', me);
 let lastName = 'Williams';
 let oldLastName = lastName; 
 */
-const arr = [1, 'mimi', 2];
-
-let a = arr[0];
-let b = arr[1];
-let c = arr[2];
- console.log(a,b,c);
-
-const arr1  = [1, 2, 3];
-let [y,z,x] = arr1;
-console.log(y,z,x); 
-
-let resturant = {
-name: 'Mariya VIKI',
-menu: ["pasta","pizza","wather","salet"],
-servi:['Iva','Stoyan','Asen','Mimi','Viki',],
-location: 'Sofia, Bulgaria',
-order: function(starIndex,starMenu){
-    return[this.menu[starIndex],this.servi[starMenu]]
+// 
+let restorant = {
+addres: 'Sofia; Ovcha Cupel, str: Geo Milev',
+name: 'Mariya and Viki',
+menu:['Pizza Caprichoza', 'Pasta Italianam', 'Tartaleta', 'Gelato'],
+asist1: {
+room1:['Gosho','Nikol'],
+room2: ['Viki','Grig','Iva']
+},
+asist2:{
+    room20:{
+        name1:['Iva','Ivan','Mariya']
+    }
+},
+order: function(varni1, varni2) {
+return[this.menu[varni1],this.asist.room1[varni2]]
 }
 }
+let vurni = order.varni1;
+console.log(vurni);
 
-const [res1, res2] = resturant.servi;
-console.log(res1,res2);
-let [rest3, ,rest4] = resturant.servi; ///
-
-[rest3, rest4] = [rest4, rest3];
-console.log(rest3,rest4); 
-const [st1,st2]  = resturant.order(0,0);
-console.log(st1, st2);
-// vlojen masiv
-
-const nested = [2,4, [2,'mimi']];
-const [i, ,m] = nested;
-console.log(i, m);
-// destruktorirane na vloven
-
-const [k, ,[o,p]]= nested;
-console.log(k, o, p);
+////
+const restaurant = {
+    name: 'Classico Italiano',
+    location: 'Via Angelo Tavanti 23, Firenze, Italy',
+    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+    starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  
+    openingHours: {
+      thu: {
+        open: 12,
+        close: 22,
+      },
+      fri: {
+        open: 11,
+        close: 23,
+      },
+      sat: {
+        open: 0, // Open 24 hours
+        close: 24,
+      },
+    },
+  };
+  
