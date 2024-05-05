@@ -1218,7 +1218,8 @@ let ot1 = [d,f];
 //1. Масиви
 //Rest параметри:
 
-// Функция за филтриране на масив, използвайки rest параметри за приемане на множество критерии
+// Функция за филтриране на масив, използвайки rest параметри за приемане на множество критерии:
+
 function filterByCriteria(dataArray, ...criteria) {
   return dataArray.filter(item => criteria.every(criterion => criterion(item)));
 }
