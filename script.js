@@ -1213,7 +1213,66 @@ let ot1 = [d,f];
 // console.log(`${d} е на ${ot}!`);
 // console.log(`${f} е на ${ot2}!`);
 
+////
+
+//1. Масиви
+//Rest параметри:
+
+// Функция за филтриране на масив, използвайки rest параметри за приемане на множество критерии
+function filterByCriteria(dataArray, ...criteria) {
+  return dataArray.filter(item => criteria.every(criterion => criterion(item)));
+}
+
+const data = [1, 2, 3, 4, 5, 6];
+const isEven = num => num % 2 === 0;
+const isGreaterThanThree = num => num > 3;
+
+console.log(filterByCriteria(data, isEven, isGreaterThanThree)); // Извежда: [4, 6]
+// Spread оператори:
+
+// Използване на spread оператор за конкатениране на масиви с допълнителни елементи
+const firstPart = [1, 2, 3];
+const secondPart = [7, 8, 9];
+const combinedArray = [0, ...firstPart, 4, 5, 6, ...secondPart, 10];
+
+console.log(combinedArray); // Извежда: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+//2. Обекти
+//Rest параметри:
+
+// Функция за създаване на нов обект, изключващ определени свойства, използвайки rest параметри в обектен деструктуриране
+function excludeProperties(obj, ...keysToExclude) {
+  const { [keysToExclude]: _, ...rest } = obj;
+  return rest;
+}
+
+const person = { name: 'Alice', age: 25, job: 'Developer' };
+console.log(excludeProperties(person, 'age', 'job')); // Извежда: { name: 'Alice' }
+//Spread оператори:
 
 
+// Използване на spread оператор за сливане на обекти
+const defaultSettings = { color: 'blue', size: 'medium', weight: 'light' };
+const userSettings = { color: 'red', size: 'large' };
+const finalSettings = { ...defaultSettings, ...userSettings };
+
+console.log(finalSettings); // Извежда: { color: 'red', size: 'large', weight: 'light' }
+// 3. Функции
+// Rest параметри:
+
+
+// Функция за събиране на неопределен брой аргументи
+function sumAll(...numbers) {
+  return numbers.reduce((acc, num) => acc + num, 0);
+}
+
+console.log(sumAll(1, 2, 3, 4, 5)); // Извежда: 15
+
+// Използване на spread оператор за предаване на масив от аргументи към функция
+function multiply(a, b, c) {
+  return a * b * c;
+}
+
+const factors = [2, 3, 4];
+console.log(multiply(...factors)); // Извежда: 24
 
 
