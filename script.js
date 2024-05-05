@@ -1276,4 +1276,63 @@ function multiply(a, b, c) {
 const factors = [2, 3, 4];
 console.log(multiply(...factors)); // Извежда: 24
 
+/////////////////////////
+//1. **Събиране на аргументи в масив**:
+
+function sum(...args) {
+    return args.reduce((acc, val) => acc + val, 0);
+}
+
+console.log(sum(1, 2, 3)); // Output: 6
+
+
+//2. **Използване на няколко фиксирани аргумента с rest parameters**:
+
+function multiply(multiplier, ...args) {
+    return args.map(val => val * multiplier);
+}
+
+console.log(multiply(2, 1, 2, 3)); // Output: [2, 4, 6]
+
+
+//3. **Комбиниране на rest parameters с други аргументи**:
+
+function concat(separator, ...args) {
+    return args.join(separator);
+}
+
+console.log(concat('-', 'a', 'b', 'c')); // Output: "a-b-c"
+
+
+//4. **Използване на rest parameters в деструктуриращо присвояване**:
+
+const [first, ...rest] = [1, 2, 3, 4, 5];
+console.log(first); // Output: 1
+console.log(rest);  // Output: [2, 3, 4, 5]
+
+
+//5. **Предаване на rest parameters като аргументи на друга функция**:
+
+function sum(...args) {
+    return args.reduce((acc, val) => acc + val, 0);
+}
+
+function calculateAverage(...args) {
+    const total = sum(...args);
+    return total / args.length;
+}
+
+console.log(calculateAverage(1, 2, 3)); // Output: 2
+
+
+//6. **Използване на rest parameters в методи на обекти**:
+
+const obj = {
+    method(...args) {
+        console.log(args);
+    }
+};
+
+obj.method(1, 2, 3); // Output: [1, 2, 3]
+
 
