@@ -1169,7 +1169,7 @@ console.log(1, 2, 7, 8, 9);
 
 */
 // //Rest/Spread
-
+/*
 const kam = {
   fName:"Kameliya",
   lName:"Dodova",
@@ -1334,5 +1334,122 @@ const obj = {
 };
 
 obj.method(1, 2, 3); // Output: [1, 2, 3]
+*/
+
+//Enhanced Object Literals
+
+// Пример за Съкращение на свойства (Property Shorthand)
+let name = "John";
+let age = 25;
+
+let person = { name, age };
+
+console.log(person); // { name: "John", age: 25 }
+
+// Пример за Съкращение на методи (Method Shorthand)
+let person2 = {
+  name: "John",
+  greet() {
+    console.log("Hello");
+  }
+};
+
+person2.greet(); // "Hello"
+
+// Пример за Изчисляеми свойства (Computed Property Names)
+let prop = "name";
+let id = 1;
+
+let person3 = {
+  [prop]: "John",
+  [`userId${id}`]: 101
+};
+
+console.log(person3); // { name: "John", userId1: 101 }
+
+////////////////
+
+//Разширените обектни литерали в JavaScript (Enhanced Object Literals) предоставят различни удобства, 
+//които могат да бъдат използвани в сложни сценарии за програмиране. Ето няколко по-сложни примера, 
+//които илюстрират различни употреби на тези функционалности в разнообразни контексти:
+
+//### 1. Динамични свойства и функции
+
+//Този пример показва как може да използвате изчисляеми свойства за създаване на динамични ключове и методи в обект:
+
+
+
+const getPropertyKey = (prefix, name) => `${prefix}${name}`;
+
+const createObject = (dynamicKey, dynamicValue) => {
+  const staticKey = 'staticValue';
+  return {
+    [dynamicKey]: dynamicValue,
+    [getPropertyKey('computed', 'Method')]() {
+      console.log(`This is a computed method accessing ${this[dynamicKey]}`);
+    },
+    get [getPropertyKey('get', dynamicKey)]() {
+      return this[dynamicKey];
+    },
+    set [getPropertyKey('set', dynamicKey)](value) {
+      this[dynamicKey] = value;
+    }
+  };
+};
+
+const myObject = createObject('dynamicKey', 42);
+console.log(myObject);
+myObject.computedMethod();
+console.log(myObject.getdynamicKey);
+myObject.setdynamicKey = 100;
+console.log(myObject.getdynamicKey);
+
+
+//### 2. Сложен обект с вложени методи и свойства
+
+//Този пример показва сложен обект с вложени структури, който включва методи и изчисляеми свойства:
+
+const teamName = "Warriors";
+const team = {
+  teamName,
+  [`${teamName.toLowerCase()}Info`]: {
+    founded: 1946,
+    location: "San Francisco",
+  },
+  players: ['Stephen', 'Klay', 'Draymond'],
+  introduce() {
+    console.log(`We are the ${this.teamName}!`);
+  },
+  listPlayers() {
+    this.players.forEach(player => console.log(player));
+  }
+};
+
+team.introduce();
+team.listPlayers();
+console.log(team.warriorsInfo);
+
+
+//### 3. Обект, създаден от функции и зависими изчисляеми свойства
+
+//Тук създаваме обект, който има зависимости между свойствата, като изчислението на едно свойство зависи от стойностите на други свойства
+
+const createConfig = (environment) => {
+  const isProduction = environment === 'production';
+  return {
+    environment,
+    debugMode: !isProduction,
+    [isProduction ? 'productionConfig' : 'developmentConfig']: {
+      apiUrl: isProduction ? 'https://api.example.com' : 'http://localhost:3000',
+    },
+    logConfig() {
+      console.log(`Running in ${this.environment} mode. Debug mode is ${this.debugMode ? 'on' : 'off'}.`);
+    }
+  };
+};
+
+const config = createConfig('development');
+config.logConfig();
+console.log(config.developmentConfig);
 
 
