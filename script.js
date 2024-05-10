@@ -1612,5 +1612,58 @@ toggleFeature(systemSettings, 'darkMode', false);
 console.log(systemSettings);
 // Очакван резултат:
 // { darkMode: 'disabled', version: '1.4.2', experimentalFeature: 'enabled' }
+////
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <form id="calculator">
+        <input type="text" id="firstNumber" placeholder="Enter first number" />
+        <select id="operation">
+            <option value="add">+</option>
+            <option value="subtract">-</option>
+            <option value="multiply">*</option>
+            <option value="divide">/</option>
+        </select>
+        <input type="text" id="secondNumber" placeholder="Enter second number" />
+        <button type="button" onclick="performCalculation()">Calculate</button>
+    </form>
+    <h2 id="result"></h2>
+
+    <script>
+        function performCalculation() {
+            var firstNumber = parseFloat(document.getElementById('firstNumber').value);
+            var secondNumber = parseFloat(document.getElementById('secondNumber').value);
+            var operation = document.getElementById('operation').value;
+            var result;
+
+            switch (operation) {
+                case 'add':
+                    result = firstNumber + secondNumber;
+                    break;
+                case 'subtract':
+                    result = firstNumber - secondNumber;
+                    break;
+                case 'multiply':
+                    result = firstNumber * secondNumber;
+                    break;
+                case 'divide':
+                    result = firstNumber / secondNumber;
+                    break;
+                default:
+                    result = 'Invalid operation';
+                    break;
+            }
+
+            document.getElementById('result').innerText = 'Result: ' + result;
+        }
+    </script>
+</body>
+</html>
 
 
