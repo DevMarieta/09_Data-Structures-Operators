@@ -8,20 +8,21 @@
 // // // Data needed for first part of the section
 const restaurants = {
   name: 'Classico Italiano',
-location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-   openingHours: {
-     thu: {
-       open: 12,       close: 22,
-     },
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
     fri: {
-       open: 11,
-       close: 23,
-     },
-     sat: {
-       open: 0, // Open 24 hours
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
       close: 24,
     },
   },
@@ -48,24 +49,24 @@ location: 'Via Angelo Tavanti 23, Firenze, Italy',
 // //   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 // // };
 
- //Simple Destructuring
- //Extracting values from an array:
+//Simple Destructuring
+//Extracting values from an array:
 
- // const [first, second] = restaurant.categories;
+// const [first, second] = restaurant.categories;
 
 //Skipping Elements
 
- // const [main, , secondary] = restaurant.categories;
- // console.log(main, secondary); // Italian Vegetarian
+// const [main, , secondary] = restaurant.categories;
+// console.log(main, secondary); // Italian Vegetarian
 
-  //Switching Variables
+//Switching Variables
 
 // let [mainn, secondaryy] = ['Italian', 'Vegetarian'];
- // [mainn, secondaryy] = [secondaryy, mainn];
+// [mainn, secondaryy] = [secondaryy, mainn];
 /// console.log(main, secondary); // Vegetarian Italian
 
- //Nested Destructuring
- //Handling nested arrays:
+//Nested Destructuring
+//Handling nested arrays:
 
 // const nested = [2, 4, [5, 6]];
 // const [i, , [j, k]] = nested;
@@ -74,11 +75,11 @@ location: 'Via Angelo Tavanti 23, Firenze, Italy',
 ///Default Values
 ///Setting default values for variables:
 
- // const [p = 1, q = 1, r = 1] = [8, 9];
+// const [p = 1, q = 1, r = 1] = [8, 9];
 // console.log(p, q, r); // 8 9 1
 
 //Practical Application
- //Returning multiple values from a function:
+//Returning multiple values from a function:
 
 // // const order = (starterIndex, mainIndex) => {
 // //   return [restaurant.starterMenu[starterIndex], restaurant.mainMenu[mainIndex]];
@@ -136,7 +137,9 @@ true/true = true;true/false = true;false/false = false */
 
 console.log(null || undefined || 'Mimi' || '' || 3 || true | false);
 
-//Practis:
-// const guests1 = restaurants.numGuests ? restaurants.numGuests : 10
-// console.log(guests1);
-
+//Practis:по-лесен метод за задаване на стойности по подразбиране изявление if else
+const guests1 = restaurants.numGuests ? restaurants.numGuests : 10;
+console.log(guests1);
+//метод за задаване на стойности по подразбиране изявление if else
+let guests2 = restaurants.numGuests || 10;
+console.log(guests2);
