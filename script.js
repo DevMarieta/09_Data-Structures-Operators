@@ -141,5 +141,44 @@ console.log(null || undefined || 'Mimi' || '' || 3 || true | false);
 const guests1 = restaurants.numGuests ? restaurants.numGuests : 10;
 console.log(guests1);
 //метод за задаване на стойности по подразбиране изявление if else
+restaurants.numGuests = 0;
 let guests2 = restaurants.numGuests || 10;
 console.log(guests2);
+//
+const guestCorect = restaurants.numGuests ?? 10;
+console.log(guestCorect);
+//
+// Пример със стойност 0, която е falsy
+let numGuests = 0;
+let guests = numGuests || 10;
+console.log(guests); // Изход: 10
+
+// Пример с празен стринг, който е falsy
+let guestName = '';
+let name = guestName || 'Anonymous';
+console.log(name); // Изход: Anonymous
+
+// Пример с null
+let guestID = null;
+let id = guestID || 999;
+console.log(id); // Изход: 999
+//
+// Пример със стойност 0, която не е null или undefined
+let numGuests1 = 0;
+let guests3 = numGuests1 ?? 10;
+console.log(guests3); // Изход: 0
+
+// Пример с празен стринг, който не е null или undefined
+let guestName1 = '';
+let name1 = guestName1 ?? 'Anonymous';
+console.log(name1); // Изход: ""
+
+// Пример с null
+let guestID1 = null;
+let id1 = guestID1 ?? 999;
+console.log(id1); // Изход: 999
+
+// Пример с undefined
+let guestAge;
+let age = guestAge ?? 21;
+console.log(age); // Изход: 21
