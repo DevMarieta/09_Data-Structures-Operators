@@ -182,3 +182,79 @@ console.log(id1); // Изход: 999
 let guestAge;
 let age = guestAge ?? 21;
 console.log(age); // Изход: 21
+//// Употреба на логическо ИЛИ (`||`)
+
+// 1. **Задаване на стойност по подразбиране:**
+//    - В случаи, когато искаме да осигурим стойност по подразбиране, ако дадена променлива има лъжлива стойност.
+
+function getDiscount(user) {
+  // Ако user.discount е 0 (например специална промоция), стойността по подразбиране ще бъде използвана
+  let discount = user.discount || 10;
+  return discount;
+}
+
+let user5 = { discount: 0 };
+console.log(getDiscount(user5)); // Изход: 10 (0 е лъжлива стойност)
+
+let user4 = { discount: 15 };
+console.log(getDiscount(user4)); // Изход: 15
+
+// 2. **Осигуряване на стойност по подразбиране за входни данни:**
+//    - Ако входът е празен стринг, ще се използва стойност по подразбиране.
+
+function greet(name) {
+  // Ако name е празен стринг, ще се използва "Guest"
+  let userName = name || 'Guest';
+  console.log(`Hello, ${userName}!`);
+}
+
+greet(''); // Изход: Hello, Guest!
+greet('Alice'); // Изход: Hello, Alice!
+
+// Употреба на нулев съюз (`??`)
+
+// 1. **Задаване на стойност по подразбиране само за `null` или `undefined`:**
+//    - В случаи, когато искаме да осигурим стойност по подразбиране само ако променливата е `null` или `undefined`.
+
+function getUserAge(user) {
+  // Ако user.age е null или undefined, ще се използва 21
+  let age = user.age ?? 21;
+  return age;
+}
+
+let user1 = { age: 0 };
+console.log(getUserAge(user1)); // Изход: 0 (0 не е null или undefined)
+
+let user2 = { age: null };
+console.log(getUserAge(user2)); // Изход: 21 (null е)
+
+let user3 = {};
+console.log(getUserAge(user3)); // Изход: 21 (age е undefined)
+
+// 2. **Присвояване на стойност по подразбиране при зареждане на конфигурация:**
+//    - Употреба при конфигурационни настройки, където искаме да осигурим стойност
+//    по подразбиране само при липса на конфигурация.
+
+function getConfig(config) {
+  // Ако config.maxRetries е null или undefined, ще се използва 3
+  let maxRetries = config.maxRetries ?? 3;
+  return maxRetries;
+}
+
+let config1 = { maxRetries: 0 };
+console.log(getConfig(config1)); // Изход: 0 (0 не е null или undefined)
+
+let config2 = { maxRetries: null };
+console.log(getConfig(config2)); // Изход: 3 (null е)
+
+let config3 = {};
+console.log(getConfig(config3)); // Изход: 3 (maxRetries е undefined)
+
+// ### Обобщение
+
+// - **Логическо ИЛИ (`||`)** се използва, когато искате да осигурите стойност по подразбиране за всички лъжливи стойности
+// (`false`, `0`, `""`, `null`, `undefined`, `NaN`).
+// - **Нулев съюз (`??`)** се използва, когато искате да осигурите стойност по подразбиране само за
+// `null` или `undefined`, оставяйки другите лъжливи стойности непроменени.
+
+// Изборът на оператор зависи от конкретния контекст и очакваното поведение на програмата.
