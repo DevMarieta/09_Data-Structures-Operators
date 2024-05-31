@@ -135,11 +135,28 @@ true/true = true;true/false = true;false/false = false */
 // В JavaScript операторът за логическо "ИЛИ" (||) връща първата истинна (truthy) стойност,
 // която срещне. Ако няма такива, връща последната лъжлива (falsy) стойност.
 
+//"ИЛИ" (||) 
 console.log(null || undefined || 'Mimi' || '' || 3 || true | false);
-
+restaurants.newGuests = 0;
 //Practis:по-лесен метод за задаване на стойности по подразбиране изявление if else
 const guests1 = restaurants.numGuests ? restaurants.numGuests : 10;
 console.log(guests1);
 //метод за задаване на стойности по подразбиране изявление if else
 let guests2 = restaurants.numGuests || 10;
 console.log(guests2);
+console.log('--AND--');
+console.log(0 && 'Mimi');
+console.log(2 && 'Mimi');
+console.log('a'&& 2 && null && 'b');
+//spira i printira do pyrva stoynost 'false'
+//practical example:
+if(restaurants.orderPizza){
+  restaurants.orderPizza('mushrooms','spinach')
+}
+restaurants.orderPizza && restaurants.orderPizza ('mushrooms','spinach')
+
+//109- (??)
+const guest = restaurants.newGuests ?? 10;
+console.log(guest);
+
+
