@@ -145,7 +145,7 @@ console.log(guests1);
 restaurants.numGuests = 0;
 let guests2 = restaurants.numGuests || 10;
 console.log(guests2);
-<<<<<<< HEAD
+
 console.log('--AND--');
 console.log(0 && 'Mimi');
 console.log(2 && 'Mimi');
@@ -162,7 +162,7 @@ const guest = restaurants.newGuests ?? 10;
 console.log(guest);
 
 
-=======
+
 //
 const guestCorect = restaurants.numGuests ?? 10;
 console.log(guestCorect);
@@ -277,3 +277,20 @@ console.log(getConfig(config3)); // Изход: 3 (maxRetries е undefined)
 // `null` или `undefined`, оставяйки другите лъжливи стойности непроменени.
 
 // Изборът на оператор зависи от конкретния контекст и очакваното поведение на програмата.
+/*PROCEDURE UpdateCustomerBalance (CustomerID : INTEGER; Amount : DECIMAL)
+VAR
+    CustomerRecord : RECORD Customer;
+BEGIN
+    // Намиране на клиента по ID
+    FIND CustomerRecord WHERE CustomerRecord.ID = CustomerID;
+    IF NOT FOUND THEN
+        ERROR "Customer not found";
+    END IF;
+
+    // Актуализиране на баланса на клиента
+    CustomerRecord.Balance := CustomerRecord.Balance + Amount;
+    
+    // Записване на промените в базата данни
+    STORE CustomerRecord;
+END PROCEDURE;
+ */
