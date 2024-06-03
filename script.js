@@ -276,21 +276,3 @@ console.log(getConfig(config3)); // Изход: 3 (maxRetries е undefined)
 // - **Нулев съюз (`??`)** се използва, когато искате да осигурите стойност по подразбиране само за
 // `null` или `undefined`, оставяйки другите лъжливи стойности непроменени.
 
-// Изборът на оператор зависи от конкретния контекст и очакваното поведение на програмата.
-/*PROCEDURE UpdateCustomerBalance (CustomerID : INTEGER; Amount : DECIMAL)
-VAR
-    CustomerRecord : RECORD Customer;
-BEGIN
-    // Намиране на клиента по ID
-    FIND CustomerRecord WHERE CustomerRecord.ID = CustomerID;
-    IF NOT FOUND THEN
-        ERROR "Customer not found";
-    END IF;
-
-    // Актуализиране на баланса на клиента
-    CustomerRecord.Balance := CustomerRecord.Balance + Amount;
-    
-    // Записване на промените в базата данни
-    STORE CustomerRecord;
-END PROCEDURE;
- */
