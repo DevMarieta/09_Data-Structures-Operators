@@ -276,3 +276,31 @@ console.log(getConfig(config3)); // Изход: 3 (maxRetries е undefined)
 // - **Нулев съюз (`??`)** се използва, когато искате да осигурите стойност по подразбиране само за
 // `null` или `undefined`, оставяйки другите лъжливи стойности непроменени.
 
+// ??
+const foo = null ?? 'default string';
+console.log(foo);
+// Expected output: "default string"
+
+const baz = 0 ?? 42;
+console.log(baz);
+// Expected output: 0
+function displayUserProfile(user) {
+  let userId = user.id ?? "Unknown ID";
+  let userName = user.name ?? "Anonymous";
+  
+  // Using optional chaining with nullish coalescing
+  let userTheme = user.preferences?.theme ?? "default-theme";
+  let userLanguage = user.preferences?.language ?? "en";
+  let userEmail = user.contact?.email ?? "No email provided";
+  let userPhone = user.contact?.phone ?? "No phone number provided";
+
+  console.log(`User ID: ${userId}`);
+  console.log(`Name: ${userName}`);
+  console.log(`Theme: ${userTheme}`);
+  console.log(`Language: ${userLanguage}`);
+  console.log(`Email: ${userEmail}`);
+  console.log(`Phone: ${userPhone}`);
+}
+
+// Calling the function with the example user profile
+displayUserProfile(userProfile);
