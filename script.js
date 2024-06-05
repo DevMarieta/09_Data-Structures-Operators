@@ -136,181 +136,213 @@ true/true = true;true/false = true;false/false = false */
 // която срещне. Ако няма такива, връща последната лъжлива (falsy) стойност.
 
 //"ИЛИ" (||) 
-console.log(null || undefined || 'Mimi' || '' || 3 || true | false);
-restaurants.newGuests = 0;
-//Practis:по-лесен метод за задаване на стойности по подразбиране изявление if else
-const guests1 = restaurants.numGuests ? restaurants.numGuests : 10;
-console.log(guests1);
-//метод за задаване на стойности по подразбиране изявление if else
-restaurants.numGuests = 0;
-let guests2 = restaurants.numGuests || 10;
-console.log(guests2);
+// console.log(null || undefined || 'Mimi' || '' || 3 || true | false);
+// restaurants.newGuests = 0;
+// //Practis:по-лесен метод за задаване на стойности по подразбиране изявление if else
+// const guests1 = restaurants.numGuests ? restaurants.numGuests : 10;
+// console.log(guests1);
+// //метод за задаване на стойности по подразбиране изявление if else
+// restaurants.numGuests = 0;
+// let guests2 = restaurants.numGuests || 10;
+// console.log(guests2);
 
-console.log('--AND--');
-console.log(0 && 'Mimi');
-console.log(2 && 'Mimi');
-console.log('a'&& 2 && null && 'b');
-//spira i printira do pyrva stoynost 'false'
-//practical example:
-if(restaurants.orderPizza){
-  restaurants.orderPizza('mushrooms','spinach')
-}
-restaurants.orderPizza && restaurants.orderPizza ('mushrooms','spinach')
+// console.log('--AND--');
+// console.log(0 && 'Mimi');
+// console.log(2 && 'Mimi');
+// console.log('a'&& 2 && null && 'b');
+// //spira i printira do pyrva stoynost 'false'
+// //practical example:
+// if(restaurants.orderPizza){
+//   restaurants.orderPizza('mushrooms','spinach')
+// }
+// restaurants.orderPizza && restaurants.orderPizza ('mushrooms','spinach')
 
-//109- (??)
-const guest = restaurants.newGuests ?? 10;
-console.log(guest);
+// //109- (??)
+// const guest = restaurants.newGuests ?? 10;
+// console.log(guest);
 
 
 
-//
-const guestCorect = restaurants.numGuests ?? 10;
-console.log(guestCorect);
-//
-// Пример със стойност 0, която е falsy
-let numGuests = 0;
-let guests = numGuests || 10;
-console.log(guests); // Изход: 10
+// //
+// const guestCorect = restaurants.numGuests ?? 10;
+// console.log(guestCorect);
+// //
+// // Пример със стойност 0, която е falsy
+// let numGuests = 0;
+// let guests = numGuests || 10;
+// console.log(guests); // Изход: 10
 
-// Пример с празен стринг, който е falsy
-let guestName = '';
-let name = guestName || 'Anonymous';
-console.log(name); // Изход: Anonymous
+// // Пример с празен стринг, който е falsy
+// let guestName = '';
+// let name = guestName || 'Anonymous';
+// console.log(name); // Изход: Anonymous
 
-// Пример с null
-let guestID = null;
-let id = guestID || 999;
-console.log(id); // Изход: 999
-//
-// Пример със стойност 0, която не е null или undefined
-let numGuests1 = 0;
-let guests3 = numGuests1 ?? 10;
-console.log(guests3); // Изход: 0
+// // Пример с null
+// let guestID = null;
+// let id = guestID || 999;
+// console.log(id); // Изход: 999
+// //
+// // Пример със стойност 0, която не е null или undefined
+// let numGuests1 = 0;
+// let guests3 = numGuests1 ?? 10;
+// console.log(guests3); // Изход: 0
 
-// Пример с празен стринг, който не е null или undefined
-let guestName1 = '';
-let name1 = guestName1 ?? 'Anonymous';
-console.log(name1); // Изход: ""
+// // Пример с празен стринг, който не е null или undefined
+// let guestName1 = '';
+// let name1 = guestName1 ?? 'Anonymous';
+// console.log(name1); // Изход: ""
 
-// Пример с null
-let guestID1 = null;
-let id1 = guestID1 ?? 999;
-console.log(id1); // Изход: 999
+// // Пример с null
+// let guestID1 = null;
+// let id1 = guestID1 ?? 999;
+// console.log(id1); // Изход: 999
 
-// Пример с undefined
-let guestAge;
-let age = guestAge ?? 21;
-console.log(age); // Изход: 21
-//// Употреба на логическо ИЛИ (`||`)
+// // Пример с undefined
+// let guestAge;
+// let age = guestAge ?? 21;
+// console.log(age); // Изход: 21
+// //// Употреба на логическо ИЛИ (`||`)
 
-// 1. **Задаване на стойност по подразбиране:**
-//    - В случаи, когато искаме да осигурим стойност по подразбиране, ако дадена променлива има лъжлива стойност.
+// // 1. **Задаване на стойност по подразбиране:**
+// //    - В случаи, когато искаме да осигурим стойност по подразбиране, ако дадена променлива има лъжлива стойност.
 
-function getDiscount(user) {
-  // Ако user.discount е 0 (например специална промоция), стойността по подразбиране ще бъде използвана
-  let discount = user.discount || 10;
-  return discount;
-}
+// function getDiscount(user) {
+//   // Ако user.discount е 0 (например специална промоция), стойността по подразбиране ще бъде използвана
+//   let discount = user.discount || 10;
+//   return discount;
+// }
 
-let user5 = { discount: 0 };
-console.log(getDiscount(user5)); // Изход: 10 (0 е лъжлива стойност)
+// let user5 = { discount: 0 };
+// console.log(getDiscount(user5)); // Изход: 10 (0 е лъжлива стойност)
 
-let user4 = { discount: 15 };
-console.log(getDiscount(user4)); // Изход: 15
+// let user4 = { discount: 15 };
+// console.log(getDiscount(user4)); // Изход: 15
 
-// 2. **Осигуряване на стойност по подразбиране за входни данни:**
-//    - Ако входът е празен стринг, ще се използва стойност по подразбиране.
+// // 2. **Осигуряване на стойност по подразбиране за входни данни:**
+// //    - Ако входът е празен стринг, ще се използва стойност по подразбиране.
 
-function greet(name) {
-  // Ако name е празен стринг, ще се използва "Guest"
-  let userName = name || 'Guest';
-  console.log(`Hello, ${userName}!`);
-}
+// function greet(name) {
+//   // Ако name е празен стринг, ще се използва "Guest"
+//   let userName = name || 'Guest';
+//   console.log(`Hello, ${userName}!`);
+// }
 
-greet(''); // Изход: Hello, Guest!
-greet('Alice'); // Изход: Hello, Alice!
+// greet(''); // Изход: Hello, Guest!
+// greet('Alice'); // Изход: Hello, Alice!
 
-// Употреба на нулев съюз (`??`)
+// // Употреба на нулев съюз (`??`)
 
-// 1. **Задаване на стойност по подразбиране само за `null` или `undefined`:**
-//    - В случаи, когато искаме да осигурим стойност по подразбиране само ако променливата е `null` или `undefined`.
+// // 1. **Задаване на стойност по подразбиране само за `null` или `undefined`:**
+// //    - В случаи, когато искаме да осигурим стойност по подразбиране само ако променливата е `null` или `undefined`.
 
-function getUserAge(user) {
-  // Ако user.age е null или undefined, ще се използва 21
-  let age = user.age ?? 21;
-  return age;
-}
+// function getUserAge(user) {
+//   // Ако user.age е null или undefined, ще се използва 21
+//   let age = user.age ?? 21;
+//   return age;
+// }
 
-let user1 = { age: 0 };
-console.log(getUserAge(user1)); // Изход: 0 (0 не е null или undefined)
+// let user1 = { age: 0 };
+// console.log(getUserAge(user1)); // Изход: 0 (0 не е null или undefined)
 
-let user2 = { age: null };
-console.log(getUserAge(user2)); // Изход: 21 (null е)
+// let user2 = { age: null };
+// console.log(getUserAge(user2)); // Изход: 21 (null е)
 
-let user3 = {};
-console.log(getUserAge(user3)); // Изход: 21 (age е undefined)
+// let user3 = {};
+// console.log(getUserAge(user3)); // Изход: 21 (age е undefined)
 
-// 2. **Присвояване на стойност по подразбиране при зареждане на конфигурация:**
-//    - Употреба при конфигурационни настройки, където искаме да осигурим стойност
-//    по подразбиране само при липса на конфигурация.
+// // 2. **Присвояване на стойност по подразбиране при зареждане на конфигурация:**
+// //    - Употреба при конфигурационни настройки, където искаме да осигурим стойност
+// //    по подразбиране само при липса на конфигурация.
 
-function getConfig(config) {
-  // Ако config.maxRetries е null или undefined, ще се използва 3
-  let maxRetries = config.maxRetries ?? 3;
-  return maxRetries;
-}
+// function getConfig(config) {
+//   // Ако config.maxRetries е null или undefined, ще се използва 3
+//   let maxRetries = config.maxRetries ?? 3;
+//   return maxRetries;
+// }
 
-let config1 = { maxRetries: 0 };
-console.log(getConfig(config1)); // Изход: 0 (0 не е null или undefined)
+// let config1 = { maxRetries: 0 };
+// console.log(getConfig(config1)); // Изход: 0 (0 не е null или undefined)
 
-let config2 = { maxRetries: null };
-console.log(getConfig(config2)); // Изход: 3 (null е)
+// let config2 = { maxRetries: null };
+// console.log(getConfig(config2)); // Изход: 3 (null е)
 
-let config3 = {};
-console.log(getConfig(config3)); // Изход: 3 (maxRetries е undefined)
+// let config3 = {};
+// console.log(getConfig(config3)); // Изход: 3 (maxRetries е undefined)
 
-// ### Обобщение
+// // ### Обобщение
 
-// - **Логическо ИЛИ (`||`)** се използва, когато искате да осигурите стойност по подразбиране за всички лъжливи стойности
-// (`false`, `0`, `""`, `null`, `undefined`, `NaN`).
-// - **Нулев съюз (`??`)** се използва, когато искате да осигурите стойност по подразбиране само за
-// `null` или `undefined`, оставяйки другите лъжливи стойности непроменени.
+// // - **Логическо ИЛИ (`||`)** се използва, когато искате да осигурите стойност по подразбиране за всички лъжливи стойности
+// // (`false`, `0`, `""`, `null`, `undefined`, `NaN`).
+// // - **Нулев съюз (`??`)** се използва, когато искате да осигурите стойност по подразбиране само за
+// // `null` или `undefined`, оставяйки другите лъжливи стойности непроменени.
 
-// ??
-const foo = null ?? 'default string';
-console.log(foo);
-// Expected output: "default string"
+// // ??
+// const foo = null ?? 'default string';
+// console.log(foo);
+// // Expected output: "default string"
 
-const baz = 0 ?? 42;
-console.log(baz);
-// Expected output: 0
-function displayUserProfile(user) {
-  let userId = user.id ?? "Unknown ID";
-  let userName = user.name ?? "Anonymous";
+// const baz = 0 ?? 42;
+// console.log(baz);
+// // Expected output: 0
+// function displayUserProfile(user) {
+//   let userId = user.id ?? "Unknown ID";
+//   let userName = user.name ?? "Anonymous";
   
-  // Using optional chaining with nullish coalescing
-  let userTheme = user.preferences?.theme ?? "default-theme";
-  let userLanguage = user.preferences?.language ?? "en";
-  let userEmail = user.contact?.email ?? "No email provided";
-  let userPhone = user.contact?.phone ?? "No phone number provided";
+//   // Using optional chaining with nullish coalescing
+//   let userTheme = user.preferences?.theme ?? "default-theme";
+//   let userLanguage = user.preferences?.language ?? "en";
+//   let userEmail = user.contact?.email ?? "No email provided";
+//   let userPhone = user.contact?.phone ?? "No phone number provided";
 
-  console.log(`User ID: ${userId}`);
-  console.log(`Name: ${userName}`);
-  console.log(`Theme: ${userTheme}`);
-  console.log(`Language: ${userLanguage}`);
-  console.log(`Email: ${userEmail}`);
-  console.log(`Phone: ${userPhone}`);
-}
+//   console.log(`User ID: ${userId}`);
+//   console.log(`Name: ${userName}`);
+//   console.log(`Theme: ${userTheme}`);
+//   console.log(`Language: ${userLanguage}`);
+//   console.log(`Email: ${userEmail}`);
+//   console.log(`Phone: ${userPhone}`);
+// }
 
-// Calling the function with the example user profile
-displayUserProfile(userProfile);
-////////////
-let user = {
-  name: 'Alice',
-  preferences: {
-    theme: null
-  }
-};
+// // Calling the function with the example user profile
+// displayUserProfile(userProfile);
+// ////////////
+// let user = {
+//   name: 'Alice',
+//   preferences: {
+//     theme: null
+//   }
+// };
 
-let theme = user.preferences?.theme ?? 'default-theme';
-console.log(theme); // "default-theme"
+// let theme = user.preferences?.theme ?? 'default-theme';
+// console.log(theme); // "default-theme"
+// /////////
+// function greet(name) {
+//   name = name ?? 'Guest';
+//   console.log(`Hello, ${name}!`);
+// }
+
+// greet('Alice'); // "Hello, Alice!"
+// greet(null);    // "Hello, Guest!"
+// greet();        // "Hello, Guest!"
+// /////////
+// let settings = {
+//   user: {
+//     name: 'Bob'
+//   }
+// };
+
+// let userName = settings.user.name ?? 'Anonymous';
+// let userAge = settings.user.age ?? 30;
+
+// console.log(userName); // "Bob"
+// console.log(userAge);  // 30
+/////////////
+let numbers = [null, undefined, 0, 2, 3];
+let [first = 1, second = 1, third = 1] = numbers;
+
+first = first ?? 10;
+second = second ?? 10;
+third = third ?? 10;
+
+console.log(first);  // 10
+console.log(second); // 1
+console.log(third);  // 0
