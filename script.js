@@ -304,3 +304,13 @@ function displayUserProfile(user) {
 
 // Calling the function with the example user profile
 displayUserProfile(userProfile);
+////////////
+let user = {
+  name: 'Alice',
+  preferences: {
+    theme: null
+  }
+};
+
+let theme = user.preferences?.theme ?? 'default-theme';
+console.log(theme); // "default-theme"
