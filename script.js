@@ -461,3 +461,87 @@ function runAllExamples() {
 
 // Стартиране на всички примери
 runAllExamples();
+/////
+// Enhanced Object Literals
+
+// Пример 1: Създаване на обект със съкратени свойства и методи
+function createPerson(name, age, job) {
+  return {
+    name,
+    age,
+    job,
+    introduce() {
+      console.log(`Hi, I'm ${this.name}, a ${this.age} years old ${this.job}.`);
+    }
+  };
+}
+
+let person1 = createPerson('Alice', 25, 'developer');
+person1.introduce(); // Hi, I'm Alice, a 25 years old developer.
+
+// Пример 2: Използване на изчислявани имена на свойства
+let dynamicKey = 'dynamicProperty';
+let count = 0;
+
+let obj1 = {
+  [`prop_${count++}`]: 'value1',
+  [`prop_${count++}`]: 'value2',
+  [dynamicKey]: 'I am dynamic!'
+};
+
+console.log(obj1);
+// { prop_0: 'value1', prop_1: 'value2', dynamicProperty: 'I am dynamic!' }
+
+// Пример 3: Кратък синтаксис за задаване на прототип и съчетаване на всички функции
+let defaultAge = 25;
+let job = 'developer';
+let proto = {
+  greet() {
+    console.log('Hello from prototype!');
+  }
+};
+
+function createEnhancedPerson(name, age = defaultAge) {
+  return {
+    __proto__: proto,
+    name,
+    age,
+    job,
+    ['job_' + job]: job,
+    introduce() {
+      console.log(`Hi, I'm ${this.name}, a ${this.age} years old ${this.job}.`);
+    }
+  };
+}
+
+let enhancedPerson = createEnhancedPerson('Bob');
+enhancedPerson.introduce(); // Hi, I'm Bob, a 25 years old developer.
+enhancedPerson.greet(); // Hello from prototype!
+console.log(enhancedPerson); // { name: 'Bob', age: 25, job: 'developer', job_developer: 'developer' }
+
+// Традиционни обектни литерали за сравнение
+let person2 = {
+  name: 'John',
+  age: 30,
+  greet: function() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+console.log(person2); // { name: 'John', age: 30, greet: [Function: greet] }
+person2.greet(); // Hello, my name is John
+
+// Усъвършенствани обектни литерали
+let name = 'John';
+let age = 30;
+
+let person3 = {
+  name,
+  age,
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+console.log(person3); // { name: 'John', age: 30, greet: [Function: greet] }
+person3.greet(); // Hello, my name is John
