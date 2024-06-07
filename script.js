@@ -346,3 +346,118 @@ third = third ?? 10;
 console.log(first);  // 10
 console.log(second); // 1
 console.log(third);  // 0
+//////
+// Дефиниране на функции за демонстрация на различни сценарии
+
+// Функция за итериране през масив
+function iterateArray() {
+  let fruits = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape'];
+
+  console.log('Iterating through array:');
+  for (let fruit of fruits) {
+      console.log(fruit);
+  }
+  console.log('-----------------------------------');
+}
+
+// Функция за итериране през низ
+function iterateString() {
+  let greeting = 'hello world';
+
+  console.log('Iterating through string:');
+  for (let char of greeting) {
+      console.log(char);
+  }
+  console.log('-----------------------------------');
+}
+
+// Функция за итериране през Set
+function iterateSet() {
+  let mySet = new Set(['apple', 'banana', 'cherry', 'apple']); // Дубликатите в Set ще бъдат игнорирани
+
+  console.log('Iterating through Set:');
+  for (let fruit of mySet) {
+      console.log(fruit);
+  }
+  console.log('-----------------------------------');
+}
+
+// Функция за итериране през Map
+function iterateMap() {
+  let myMap = new Map([
+      ['a', 'apple'],
+      ['b', 'banana'],
+      ['c', 'cherry'],
+      ['d', 'date'],
+      ['e', 'elderberry']
+  ]);
+
+  console.log('Iterating through Map:');
+  for (let [key, value] of myMap) {
+      console.log(`${key}: ${value}`);
+  }
+  console.log('-----------------------------------');
+}
+
+// Функция за итериране през обект с итериуеми свойства
+function iterateObjectWithIterableProperties() {
+  let user = {
+      name: 'John',
+      hobbies: ['reading', 'hiking', 'coding'],
+      favoriteBooks: new Set(['1984', 'Brave New World', 'Fahrenheit 451']),
+      contacts: new Map([
+          ['email', 'john.doe@example.com'],
+          ['phone', '123-456-7890']
+      ])
+  };
+
+  console.log('Iterating through object with iterable properties:');
+
+  // Итериране през масива от хобита
+  console.log('Hobbies:');
+  for (let hobby of user.hobbies) {
+      console.log(hobby);
+  }
+
+  // Итериране през Set от любими книги
+  console.log('Favorite Books:');
+  for (let book of user.favoriteBooks) {
+      console.log(book);
+  }
+
+  // Итериране през Map от контакти
+  console.log('Contacts:');
+  for (let [type, contact] of user.contacts) {
+      console.log(`${type}: ${contact}`);
+  }
+
+  console.log('-----------------------------------');
+}
+
+// Асинхронна функция за демонстрация на for-await-of
+async function iterateAsync() {
+  let asyncValues = [
+      new Promise(resolve => setTimeout(() => resolve('Async Value 1'), 1000)),
+      new Promise(resolve => setTimeout(() => resolve('Async Value 2'), 500)),
+      new Promise(resolve => setTimeout(() => resolve('Async Value 3'), 1500))
+  ];
+
+  console.log('Iterating through async values:');
+  for await (let value of asyncValues) {
+      console.log(value);
+  }
+  console.log('-----------------------------------');
+}
+
+// Извикване на всички функции за демонстрация
+function runAllExamples() {
+  iterateArray();
+  iterateString();
+  iterateSet();
+  iterateMap();
+  iterateObjectWithIterableProperties();
+  iterateAsync();
+}
+
+// Стартиране на всички примери
+runAllExamples();
