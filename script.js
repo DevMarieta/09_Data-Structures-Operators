@@ -545,3 +545,51 @@ let person3 = {
 
 console.log(person3); // { name: 'John', age: 30, greet: [Function: greet] }
 person3.greet(); // Hello, my name is John
+//////////////
+// Примерен обект с вложени свойства
+const user = {
+  name: "Иван",
+  address: {
+      city: "София",
+      postalCode: "1000"
+  }
+};
+
+// Без опционално верижене, трябва да проверяваме всяко ниво на обекта
+const postalCode1 = user && user.address && user.address.postalCode;
+console.log(postalCode1); // Извежда "1000"
+
+// С опционално верижене можем да избегнем тези проверки
+const postalCode2 = user?.address?.postalCode;
+console.log(postalCode2); // Извежда "1000"
+
+// Ако някое от свойствата е undefined или null, резултатът ще бъде undefined
+const country = user?.address?.country;
+console.log(country); // Извежда undefined
+
+// Пример с масиви
+const users = [
+  { name: "Иван", age: 30 },
+  { name: "Мария", age: 25 }
+];
+
+// Достъпване на елемент от масива с опционално верижене
+const secondUserName = users[1]?.name;
+console.log(secondUserName); // Извежда "Мария"
+
+// Опит за достъпване на несъществуващ елемент
+const thirdUserName = users[2]?.name;
+console.log(thirdUserName); // Извежда undefined
+
+// Пример с функции
+const person = {
+  getName: () => "Георги"
+};
+
+// Викаме функция с опционално верижене
+const personName = person.getName?.();
+console.log(personName); // Извежда "Георги"
+
+// Опит за викаме на несъществуваща функция
+const nonExistentFunctionResult = person.nonExistentFunction?.();
+console.log(nonExistentFunctionResult); // Извежда undefined
