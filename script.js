@@ -614,3 +614,16 @@ Object.values(car).forEach(value => {
 Object.entries(car).forEach(([key, value]) => {
   console.log(`Entry: ${key} - ${value}`); // Извежда: brand - Toyota, model - Corolla, year - 2020
 });
+///
+const user = {
+  name: "Иван",
+  age: 30,
+  city: "София"
+};
+
+// Използване на Object.keys() за обхождане на ключовете
+const keys = Object.keys(user);
+
+keys.forEach(key => {
+  console.log(key); // Извежда: name, age, city
+});
