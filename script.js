@@ -593,3 +593,24 @@ console.log(personName); // Извежда "Георги"
 // Опит за викаме на несъществуваща функция
 const nonExistentFunctionResult = person.nonExistentFunction?.();
 console.log(nonExistentFunctionResult); // Извежда undefined
+///////////
+const car = {
+  brand: "Toyota",
+  model: "Corolla",
+  year: 2020
+};
+
+// Обхождане на ключовете
+Object.keys(car).forEach(key => {
+  console.log(`Key: ${key}`); // Извежда: brand, model, year
+});
+
+// Обхождане на стойностите
+Object.values(car).forEach(value => {
+  console.log(`Value: ${value}`); // Извежда: Toyota, Corolla, 2020
+});
+
+// Обхождане на двойките ключ-стойност
+Object.entries(car).forEach(([key, value]) => {
+  console.log(`Entry: ${key} - ${value}`); // Извежда: brand - Toyota, model - Corolla, year - 2020
+});
