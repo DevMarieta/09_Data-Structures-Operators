@@ -115,4 +115,4 @@ function deleteVariantOption() {
     url = url.replace("#web", COMPANY.WEBPAGE);
     url = url.replace("#id", CDIMLINES.CCCCCID);
     var HttpClient = new ActiveXObject("Microsoft.XMLHTTP");
-    HttpClient.open("DELETE",
+
